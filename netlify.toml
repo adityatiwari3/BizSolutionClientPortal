@@ -1,5 +1,5 @@
 [build]
-    publish = "dist/biz-services-client-portal"
+    publish = "dist/biz-services-client-portal/browser"
     command = "ng build"
 [[redirects]]
     from = "/*"
