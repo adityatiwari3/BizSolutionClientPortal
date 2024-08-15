@@ -28,7 +28,6 @@ export class LoginComponent {
     userName : this.userName,
     password : this.password
   })
-
   // isPANValid: boolean = false;
   message: string = '';
   messageClass: string = 'text-danger';
@@ -52,6 +51,7 @@ export class LoginComponent {
     this.userName.setValue(panValue.toUpperCase());
     if (panValue && !this.userName.valid) {
       this.message = 'Please enter a valid PAN';
+      // console.log()
     } else {
       this.message = '';
     }
