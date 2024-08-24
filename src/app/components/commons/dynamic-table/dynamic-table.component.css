@@ -38,11 +38,13 @@
   .table-responsive::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Color of the scrollbar thumb on hover */
   }
-  th{
-    /* background-color: #55340f; */
-  }
   td{
     background-color: #cc9658 !important;
+  }
+  .container{
+    margin: 0px;
+    width: 100vw;
+    padding: 0px;
   }
   @media (max-width: 676px){
     .container{
