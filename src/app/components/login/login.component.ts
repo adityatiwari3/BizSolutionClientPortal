@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component,HostListener } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { panValidator } from '../../utils/validators/pan-validator';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,CommonModule,ReactiveFormsModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -57,7 +57,8 @@ export class LoginComponent {
     }
   }
 
-  forgotPassword() {
+  forgotPassword(event : Event) {
+    event.preventDefault();
     if (!this.userName.valid) {
       this.message = 'Please enter a valid PAN';
       return;
@@ -66,6 +67,7 @@ export class LoginComponent {
     // Simulate sending an email
     this.message = `Please check your email sent to 'XXXXXX' to reset password`;
     this.messageClass = 'text-success'
+    window.alert("design for this is not available ")
 
     // Additional logic for sending email can be added here
   }
@@ -74,7 +76,10 @@ export class LoginComponent {
     if(!this.loginForm.valid){
       this.message = 'Please provide all the mentiond fields';
     }
-    console.log(this.loginForm.value)
+    else{
+      console.log(this.loginForm.value)
+    this.router.navigate(["/"]);
+    }
   }
 
   openFAQs() {

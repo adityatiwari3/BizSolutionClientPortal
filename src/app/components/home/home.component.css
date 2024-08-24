@@ -84,3 +84,9 @@
   font-weight: bold;
   color: #004d00; /* Dark green color */
 }
+
+.show-pass-btn{
+  width: auto;
+  /* max-width: 70px; */
+  min-width: 235px;
+}

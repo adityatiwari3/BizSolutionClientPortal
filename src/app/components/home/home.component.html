@@ -32,9 +32,9 @@
 
    <div class="container my-4">
     <div class="profile-header">
-      <h1 class="page-header">Profile</h1>
+      <h1 class="page-header">Property Details</h1>
       <p><span class="key">Customer Name: </span><span>{{getCustomerName()}}</span></p>
-      <p><span class="key">Number of units: </span><span>{{clientData.length}}</span></p>
+      <!-- <p><span class="key">Number of units: </span><span>{{clientData.length}}</span></p> -->
     </div>
     
     <div *ngFor="let unit of clientData; let i = index" class="row unit-row mb-4">
@@ -53,33 +53,57 @@
             <p><span class="key">Project Name: </span><span>{{unit.propertyName}}</span></p>
             <div *ngFor ="let customer of unit.customerList; let j = index">
                 <div class="owner-section" *ngIf="customer.isPrimaryOwner">
-                    <p><span class="key text-decoration-underline">Primary Owner : </span> <span>{{customer.name}}</span></p>
+                    <p><span class="key ">Primary Owner : </span> <span>{{customer.name}}</span></p>
                     <p><span class="key">PAN: </span><span>{{customer?.pan}}</span></p>
                     <div class="row">
                       <p class="col-12 col-md-8"><span class="key" >Income Tax Login Password: </span><span >{{showPassword[i][j]?.incomeTaxPassword ? customer?.incomeTaxPassword : 'XXXXXXX'}}</span></p>
-                      <button  (click)="togglePassword(i, j, 'incomeTaxPassword')" class="button col-12 col-md-4 mb-2">{{ showPassword[i][j]?.incomeTaxPassword ? 'Hide' : 'Show' }} Income Tax Password</button>
+                      <div class="col-12 col-md-4 text-center">
+
+                        <button  (click)="togglePassword(i, j, 'incomeTaxPassword')" class="button show-pass-btn col-12 col-md-4 mb-2">{{ showPassword[i][j]?.incomeTaxPassword ? 'Hide' : 'Show' }} Income Tax Password</button>
+                      </div>
                     </div>
                     <div class="row">
                       <p class="col-12 col-md-8"><span class="key">Traces Login Password: </span><span >{{showPassword[i][j]?.tracesPassword ? customer?.tracesPassword : 'XXXXXXX'}}</span></p>
-                    <button  (click)="togglePassword(i, j, 'tracesPassword')" class="button col-12 col-md-4 mb-2">{{ showPassword[i][j]?.tracesPassword ? 'Hide' : 'Show' }} Traces Password</button>
+                      <div class="col-12 col-md-4 text-center">
+
+                        <button  (click)="togglePassword(i, j, 'tracesPassword')" class="button show-pass-btn col-12 col-md-4 mb-2">{{ showPassword[i][j]?.tracesPassword ? 'Hide' : 'Show' }} Traces Password</button>
+                      </div>
                     </div>
                   </div>
                   
                   <div *ngIf="!customer.isPrimaryOwner" class="co-owner-section mt-3">
-                    <p><span class="key text-decoration-underline">Co Owner : </span> <span>{{customer.name}}</span></p>
+                    <p>
+                      <span class="key">Co Owner:</span> 
+                      <span>
+                        {{ customer.customerOptingOutDate == '' ? customer.name : 'Opted Out On ' + customer.customerOptingOutDate }}
+                      </span>
+                    </p>
+                    
                     <p><span class="key">PAN: </span><span>{{customer?.pan}}</span></p>
                     <div class="row">
                       <p class="col-12 col-md-8"><span class="key" >Income Tax Login Password: </span><span >{{showPassword[i][j]?.incomeTaxPassword ? customer?.incomeTaxPassword : 'XXXXXXX'}}</span></p>
-                      <button  (click)="togglePassword(i, j, 'incomeTaxPassword')" class="button col-12 col-md-4 mb-2">{{ showPassword[i][j]?.incomeTaxPassword ? 'Hide' : 'Show' }} Income Tax Password</button>
+                      <div class="col-12 col-md-4 text-center">
+                        <button  (click)="togglePassword(i, j, 'incomeTaxPassword')" class="button show-pass-btn  mb-2">{{ showPassword[i][j]?.incomeTaxPassword ? 'Hide' : 'Show' }} Income Tax Password</button>
+                      </div>
                     </div>
                     <div class="row">
                       <p class="col-12 col-md-8"><span class="key">Traces Login Password: </span><span >{{showPassword[i][j]?.tracesPassword ? customer?.tracesPassword : 'XXXXXXX'}}</span></p>
-                    <button  (click)="togglePassword(i, j, 'tracesPassword')" class="button col-12 col-md-4 mb-2">{{ showPassword[i][j]?.tracesPassword ? 'Hide' : 'Show' }} Traces Password</button>
+                      <div class="col-12 col-md-4 text-center">
+
+                        <button  (click)="togglePassword(i, j, 'tracesPassword')" class="button show-pass-btn col-12 col-md-4 mb-2">{{ showPassword[i][j]?.tracesPassword ? 'Hide' : 'Show' }} Traces Password</button>
+                      </div>
                     </div>
                   </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Notes</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Selected Unit</h6>
+        <p class="card-text">There comes the notes catured in the system coresponding to each Unit</p>
       </div>
     </div>
   </div>

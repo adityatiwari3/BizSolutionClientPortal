@@ -17,9 +17,16 @@ body{
 }
 
 .house-logo{
-  max-width: 15rem;
-  
+  /* max-width: 15rem; */
+  max-width: 100%;
+  max-height: 15rem;
+  /* display: block; */
+  /* margin: auto; */
+  filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.2));
 }
+
+
+
 .text-left h1:nth-of-type(1) {
   color: white; /* Set your desired color */
   /* font-stretch: extra-expanded; */
@@ -91,4 +98,15 @@ body{
 .forgot-password a.disabled {
   pointer-events: none;
   color: #ccc;
+}
+
+@media (max-width: 676px) {
+  .house-logo{
+    max-width: 100%;
+    max-height: 11rem;
+  }
+  .logo {
+    max-width: 60%;
+    max-height: 10rem;
+  }
 }

@@ -21,7 +21,7 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": true
       },
@@ -30,7 +30,7 @@ clientData = [
         "name": "Anand Kishore's Mother",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": false
       }
@@ -48,7 +48,7 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": false
       }
@@ -66,7 +66,7 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '22/07/2023',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": false
       }
@@ -84,7 +84,7 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": true
       }
@@ -102,9 +102,9 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '22/09/2024',
         "incomeTaxPassword": "KA05mt6220@",
-        "isPrimaryOwner": true
+        "isPrimaryOwner": false
       }
     ]
   },
@@ -120,7 +120,7 @@ clientData = [
         "name": "Anand Kishore P R Vachani",
         "pan": "AANPV2131N",
         "tracesPassword": "Anan&123",
-        "customerOptingOutDate": null,
+        "customerOptingOutDate": '',
         "incomeTaxPassword": "KA05mt6220@",
         "isPrimaryOwner": false
       }

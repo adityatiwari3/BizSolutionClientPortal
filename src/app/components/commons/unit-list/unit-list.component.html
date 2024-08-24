@@ -11,16 +11,15 @@
             <div class="col-12 col-lg-8">
                 <div class="unit-info">
                     <p><span class="key">Project Name:</span><br><span>{{unit.companyName}}</span></p>
-                    <p><span class="key">Unit NO :</span><br><span>{{unit.unitNo}}</span></p>
-                    <p class="mx-3"><strong>Declaration Date :<br/></strong> 2023:02:11</p>
-                    <p><span class="key">Declaration Date :</span><br><span>2023:02:11</span></p>
+                    <p><span class="key">Unit NO. :</span><br><span>{{unit.unitNo}}</span></p>
+                    <p><span class="key">Declaration Date :</span><br><span>19/03/2023</span></p>
 
-                    <div>
-                        <p class="key"><strong>Customer Name</strong></p>
-                        <div *ngFor="let customer of unit.customerList">
+                    <div class="mt-1">
+                        <!-- <p class="key"><strong>Customer Name</strong></p> -->
+                        <div *ngFor="let customer of unit.customerList ">
                             <div class="">
                                 <div *ngIf="customer.isPrimaryOwner">
-                                  <span class="key">Primary Owner:</span><br/>
+                                  <span class="key ">Primary Owner:</span><br/>
                                   <span>{{customer.name}}</span>
                                 </div>
                                 <div *ngIf="!customer.isPrimaryOwner">
@@ -42,4 +41,11 @@
 
     <!-- <app-dynamic-table [tableData]="formUnits">
     </app-dynamic-table> -->
+    <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Notes</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Selected Unit</h6>
+          <p class="card-text">There comes the notes catured in the system coresponding to each Unit</p>
+        </div>
+      </div>
 </div>

@@ -11,88 +11,44 @@ import { FormsModule } from '@angular/forms';
 })
 export class DynamicTableComponent implements OnInit {
   @Input() tableData: any[] = []; // Data for rows
+  @Input() projectDetails : any;
   columns: string[] = []; // Automatically determined column headers
   constructor(private location : Location) {}
 
   formUnits = [
     {
-      projectName: 'Project 1',
-      customerName: 'Customer 1',
-      unitNo: 'Unit 1',
       amountPaid: '1000',
       tdsAmount: '100',
       certificateNo: 'Cert001',
-      certificateDate: '2024-08-12',
+      certificateDate: '08/12/2024',
       selected: false
     },
     {
-      projectName: 'Project 2',
-      customerName: 'Customer 2',
-      unitNo: 'Unit 2',
-      amountPaid: '2000',
-      tdsAmount: '200',
-      certificateNo: 'Cert002',
-      certificateDate: '2024-08-13',
-      selected: false
-    },
-    {
-      projectName: 'Project 3',
-      customerName: 'Customer 3',
-      unitNo: 'Unit 3',
-      amountPaid: '1500',
-      tdsAmount: '150',
-      certificateNo: 'Cert003',
-      certificateDate: '2024-08-14',
-      selected: false
-    },
-    {
-      projectName: 'Project 4',
-      customerName: 'Customer 4',
-      unitNo: 'Unit 4',
-      amountPaid: '3000',
-      tdsAmount: '300',
-      certificateNo: 'Cert004',
-      certificateDate: '2024-08-15',
-      selected: false
-    },
-    {
-      projectName: 'Project 5',
-      customerName: 'Customer 5',
-      unitNo: 'Unit 5',
       amountPaid: '2500',
       tdsAmount: '250',
       certificateNo: 'Cert005',
-      certificateDate: '2024-08-16',
+      certificateDate: '08/06/2024',
       selected: false
     },
     {
-      projectName: 'Project 6',
-      customerName: 'Customer 6',
-      unitNo: 'Unit 6',
       amountPaid: '4000',
       tdsAmount: '400',
       certificateNo: 'Cert006',
-      certificateDate: '2024-08-17',
+      certificateDate: '08/12/2024',
       selected: false
     },
     {
-      projectName: 'Project 7',
-      customerName: 'Customer 7',
-      unitNo: 'Unit 7',
       amountPaid: '3500',
       tdsAmount: '350',
       certificateNo: 'Cert007',
-      certificateDate: '2024-08-18',
+      certificateDate: '08/11/2024',
       selected: false
     },
     {
-      projectName: 'Project 8',
-      customerName: 'Customer 8',
-      unitNo: 'Unit 8',
       amountPaid: '4500',
       tdsAmount: '450',
       certificateNo: 'Cert008',
-      certificateDate: '2024-08-19',
+      certificateDate: '08/09/2024',
       selected: false
     }
   ];
