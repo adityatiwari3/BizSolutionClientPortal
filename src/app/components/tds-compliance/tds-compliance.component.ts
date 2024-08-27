@@ -135,7 +135,7 @@ export class TdsComplianceComponent {
   ];
 bizLogo = 'assets/biz-logo.png'
 reproLogo = 'assets/repro-logo.png'
-pageName = "TDS Compliance Stats";
+pageName = "TDS Compliance";
   getCompanyLogo(companyName: string): string {
     return companyName === 'BIZ Services' ? 'assets/biz-logo.png' : 'assets/repro-logo.png';
   }

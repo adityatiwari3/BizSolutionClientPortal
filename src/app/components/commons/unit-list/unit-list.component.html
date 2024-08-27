@@ -9,12 +9,12 @@
                 <img [src]="getCompanyImage(unit.companyName)" [alt]="unit.companyName" class="company-logo mb-2" />
             </div>
             <div class="col-12 col-lg-8">
-                <div class="unit-info">
+                <div class="unit-info text-center">
                     <p><span class="key">Project Name:</span><br><span>{{unit.companyName}}</span></p>
-                    <p><span class="key">Unit NO. :</span><br><span>{{unit.unitNo}}</span></p>
-                    <p><span class="key">Declaration Date :</span><br><span>19/03/2023</span></p>
+                    <p class="ml20"><span class="key">Unit No. :</span><br><span>{{unit.unitNo}}</span></p>
+                    <p class="ml20"><span class="key">Declaration Date :</span><br><span>19/03/2023</span></p>
 
-                    <div class="mt-1">
+                    <div class="mt-1 ml20">
                         <!-- <p class="key"><strong>Customer Name</strong></p> -->
                         <div *ngFor="let customer of unit.customerList ">
                             <div class="">
@@ -33,19 +33,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-1 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-1 d-flex justify-content-center align-items-center mb-2">
                 <button class="button" (click)="viewDeclaration(unit.unitNo)">View</button>
             </div>
+            <div class="card   mb-2 offset-lg-3 w100">
+                <div class="card-body">
+                  <h5 class="card-title key mt-2">Notes</h5>
+                  <p class="card-text mb-1">There comes the notes catured in the system coresponding to each Unit</p>
+                </div>
+              </div>
         </div>
     </div>
 
     <!-- <app-dynamic-table [tableData]="formUnits">
     </app-dynamic-table> -->
-    <div class="card mb-4">
+    <!-- <div class="card mb-4">
         <div class="card-body">
           <h5 class="card-title">Notes</h5>
           <h6 class="card-subtitle mb-2 text-muted">Selected Unit</h6>
           <p class="card-text">There comes the notes catured in the system coresponding to each Unit</p>
         </div>
-      </div>
+      </div> -->
 </div>

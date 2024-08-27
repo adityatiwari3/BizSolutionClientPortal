@@ -3,9 +3,9 @@
     <div class="col-lg-8 col-md-12 ">
       <div class="row container-fluid d-flex justify-content-center align-items-center" [ngClass]="{'login-container-left': !isMediumScreen}">
         <div class="text-left col-lg-7 col-md-6 col-sm-12 mt-4  container-fluid d-flex justify-content-center align-items-center">
-          <h1 class="text-aria">COMPLIANCE FOR</h1>
-          <h1 class="text-aria">TDS 194-IA ON</h1>
-          <h1 class="text-aria bg-white d-inline p-2">PROPERTY SALE</h1>
+          <h1 class="text-aria">TDS COMPLIANCE U/S. </h1>
+          <h1 class="text-aria">194-IA ON SALE OF </h1>
+          <h1 class="text-aria bg-white d-inline p-2">IMMOVABLE PROPERTY</h1>
         </div> 
         <div class="col-lg-5 col-md-6 col-sm-12 house-logo-div container-fluid d-flex justify-content-center align-items-start">
           <img src="assets/realtor-assistance.png" alt="Company Logo" class="img-fluid house-logo">
@@ -29,14 +29,14 @@
               <input class="form-control" [formControl] = "password">
             </div>
             <button type="submit" class="btn mt-3 login-btn">Login</button>
-            <div class="forgot-password text-center mt-3">
+            <div class="forgot-password text-center mt-2">
               <div *ngIf="message">
                 <p [class]="messageClass">{{ message }}</p>
               </div>
               <a href="#" (click)="forgotPassword($event)" [class.disabled]="!userName.valid" class="text-decoration-none">Reset / Forgot Password?</a>
             </div>
           </form>
-          <div class="faqs text-center mt-3">
+          <div class="faqs text-center mt-1">
             <a href="#" (click)="openFAQs()" class="text-decoration-none">FAQs</a>
           </div>
         </div>

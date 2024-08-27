@@ -36,9 +36,10 @@
   .unit-info{
     display: flex;
     flex-direction: row;
+    margin: auto;
   }
   .unit-info p {
-    margin: 0px;
+    /* margin-left: auto; */
     padding: 2px;
   }
   
@@ -79,6 +80,14 @@
     }
   }
 
+  @media (min-width: 677px) {
+    .ml20{
+        margin-left: 20px;
+    }
+  }
+.w100{
+    width: auto;
+}
 
 
   

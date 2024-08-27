@@ -67,14 +67,14 @@ export class LoginComponent {
     // Simulate sending an email
     this.message = `Please check your email sent to 'XXXXXX' to reset password`;
     this.messageClass = 'text-success'
-    window.alert("design for this is not available ")
+    // window.alert("design for this is not available ")
 
     // Additional logic for sending email can be added here
   }
 
   onSubmit() {
     if(!this.loginForm.valid){
-      this.message = 'Please provide all the mentiond fields';
+      this.message = 'Please Ensure User ID(PAN) and Password Fields are Correctly Entered';
     }
     else{
       console.log(this.loginForm.value)
