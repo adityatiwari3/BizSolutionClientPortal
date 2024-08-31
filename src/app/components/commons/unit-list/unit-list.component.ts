@@ -149,7 +149,9 @@ reproLogo = 'assets/repro-logo.png'
       return this.reproLogo;
     }
   }
-
+  logout(){
+    this.router.navigate(["/login"]);
+  }
   viewDeclaration(unitNo: string): void {
     this.router.navigate(['/table', unitNo]);
   }

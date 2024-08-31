@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component,HostListener } from '@angular/core';
+import { Component,HostListener, NgModule, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { panValidator } from '../../utils/validators/pan-validator';
+import { ClientService } from '../../services/client.service';
+import { EmailServicesService } from '../../services/email-services.service';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -12,38 +15,43 @@ import { panValidator } from '../../utils/validators/pan-validator';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
-  // username: string = '';
+export class LoginComponent implements OnInit {
   
   userName = new FormControl("",[
     Validators.required,
     panValidator()
   ])
-  // password: string = '';
   password = new FormControl("",[
     Validators.required
   ])
+
 
   loginForm = new FormGroup({
     userName : this.userName,
     password : this.password
   })
-  // isPANValid: boolean = false;
   message: string = '';
   messageClass: string = 'text-danger';
 
   isMediumScreen!:boolean;
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private clientService:ClientService
+    // private ema : EmailServicesService
+  ) {
     this.checkScreenSize();
   }
 
+  ngOnInit(): void {
+    console.log("calling the logout")
+      // this.clientService.logout();
+  }
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
   }
 
   private checkScreenSize() {
-    this.isMediumScreen = window.innerWidth < 992; // Bootstrap 'sm' breakpoint is 576px
+    this.isMediumScreen = window.innerWidth < 992;
   }
 
   validatePAN(pan:Event) {
@@ -74,11 +82,13 @@ export class LoginComponent {
 
   onSubmit() {
     if(!this.loginForm.valid){
-      this.message = 'Please Ensure User ID(PAN) and Password Fields are Correctly Entered';
+      this.message = 'Please ensure User ID(PAN) and Password fields are correctly entered';
     }
     else{
       console.log(this.loginForm.value)
-    this.router.navigate(["/"]);
+      this.clientService.setPanId(this.loginForm.value.userName);
+      this.clientService.loginStatusSubject.next(true);
+      this.router.navigate(["/"]);
     }
   }
 

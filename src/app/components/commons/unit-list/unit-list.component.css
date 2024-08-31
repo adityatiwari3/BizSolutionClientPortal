@@ -71,6 +71,9 @@
     .unit-info{
         flex-direction: column;
     }
+    .title{
+      font-size: 2rem;
+    }
   }
 
   
@@ -83,6 +86,9 @@
   @media (min-width: 677px) {
     .ml20{
         margin-left: 20px;
+    }
+    .pr20{
+      padding-right: 35px;
     }
   }
 .w100{

@@ -38,3 +38,10 @@ button{
 button:hover {
     background-color: #25545c;
   }
+
+  @media (max-width: 676px) {
+
+    .page-header{
+        font-size: clamp(2.525rem, 0.340rem + 4.641vw, 4.5rem);
+    }
+  }

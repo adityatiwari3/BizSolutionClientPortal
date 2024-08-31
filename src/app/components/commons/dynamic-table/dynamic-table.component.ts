@@ -1,19 +1,29 @@
-import { CommonModule,Location } from '@angular/common';
-import { Component,Input, OnInit  } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-table',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dynamic-table.component.html',
   styleUrl: './dynamic-table.component.css'
 })
 export class DynamicTableComponent implements OnInit {
+  @ViewChild('tableContainer') tableContainer!: ElementRef;
   @Input() tableData: any[] = []; // Data for rows
-  @Input() projectDetails : any;
+  @Input() projectDetails: any;
   columns: string[] = []; // Automatically determined column headers
-  constructor(private location : Location) {}
+  allSelected: boolean = false; // Track the select all status
+
+  constructor(private location: Location) {}
+
+  ngOnInit(): void {
+    this.tableData = this.formUnits;
+    if (this.formUnits.length > 0) {
+      this.columns = Object.keys(this.tableData[0]).filter(key => key !== 'selected');
+    }
+  }
 
   formUnits = [
     {
@@ -52,13 +62,14 @@ export class DynamicTableComponent implements OnInit {
       selected: false
     }
   ];
-  ngOnInit(): void {
-    // Automatically extract column names from the first row of the data
-    console.log("this si table data ",this.tableData)
-    this.tableData = this.formUnits;
-    if (this.formUnits.length > 0) {
-      this.columns = Object.keys(this.tableData[0]).filter(key => key !== 'selected');
-    }
+
+  toggleSelectAll() {
+    this.allSelected = !this.allSelected;
+    this.tableData.forEach(row => (row.selected = this.allSelected));
+  }
+
+  checkIfAllSelected() {
+    this.allSelected = this.tableData.every(row => row.selected);
   }
 
   goBack(): void {
@@ -73,8 +84,12 @@ export class DynamicTableComponent implements OnInit {
   downloadAllRows() {
     this.downloadData(this.tableData);
   }
+  download() {
+    const selectedRows = this.tableData.filter(row => row.selected);
+    this.downloadData(selectedRows);
+  }
 
-  private downloadData(data : any[]) {
+  private downloadData(data: any[]) {
     const csvData = this.convertToCSV(data);
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
@@ -86,10 +101,17 @@ export class DynamicTableComponent implements OnInit {
     document.body.removeChild(link);
   }
 
-  private convertToCSV(objArray : any[]) {
+  private convertToCSV(objArray: any[]) {
     const array = [Object.keys(objArray[0])].concat(objArray);
-    return array.map(it => {
-      return Object.values(it).toString();
-    }).join('\n');
+    return array
+      .map(it => {
+        return Object.values(it).toString();
+      })
+      .join('\n');
+  }
+  isScrollXEnabled: boolean = false;
+  enableScrollX() {
+    this.isScrollXEnabled = !this.isScrollXEnabled;
+    this.tableContainer.nativeElement.classList.add('show-scroll-x');
   }
 }

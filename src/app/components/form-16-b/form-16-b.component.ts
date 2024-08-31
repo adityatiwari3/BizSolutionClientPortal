@@ -14,7 +14,7 @@ import { UnitListComponent } from '../commons/unit-list/unit-list.component';
 })
 export class Form16BComponent {
 
-  pageName = "Form 16 B Certificate";
+  pageName = "Form 16B Certificate";
 
   constructor(private router:Router){
 

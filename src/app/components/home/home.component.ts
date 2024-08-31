@@ -1,13 +1,48 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ClientService } from '../../services/client.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,HttpClientModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+
+  constructor( private router : Router,
+
+    private clientService : ClientService
+  ) {};
+
+  panId:any;
+
+  ngOnInit(): void {
+    this.panId = this.clientService.getPanId();
+    this.clientService.getCustomerDetails(this.panId).subscribe(
+      (data)=>{
+        console.log("this is data ",data);
+      },(error)=>{
+        console.log("this is error ",error);
+      }
+    )
+
+
+
+    this.clientData.forEach((unit, i) => {
+      this.showPassword[i] = [];
+      unit.customerList.forEach((customer, j) => {
+        this.showPassword[i][j] = {
+          tracesPassword: false,
+          incomeTaxPassword: false
+        };
+      });
+    });
+  }
+
+
 clientData = [
   {
     "propertyId": 11,
@@ -139,17 +174,10 @@ getCustomerName(): string {
 }
 showPassword: any[][] = [];
 
-constructor() {
-  this.clientData.forEach((unit, i) => {
-    this.showPassword[i] = [];
-    unit.customerList.forEach((customer, j) => {
-      this.showPassword[i][j] = {
-        tracesPassword: false,
-        incomeTaxPassword: false
-      };
-    });
-  });
+logout(){
+  this.router.navigate(["/login"]);
 }
+
 
 togglePassword(unitIndex: number, customerIndex: number, passwordType: string) {
   this.showPassword[unitIndex][customerIndex][passwordType] = !this.showPassword[unitIndex][customerIndex][passwordType];
