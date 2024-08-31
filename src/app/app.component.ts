@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           // Check if the current route is the login page
-          this.showLogoutButton = event.url !== '/login' && this.isLogedIn;
+          this.showLogoutButton = event.url !== '/login';
         }
       });
 
