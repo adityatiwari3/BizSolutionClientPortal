@@ -33,6 +33,17 @@
     margin: auto;
     filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.2));
   }
+
+  .company-logo-1 {
+    width: auto;
+    height: auto;
+    max-height: 100px;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.2));
+    image-rendering: auto;
+}
+
   .unit-info{
     display: flex;
     flex-direction: row;

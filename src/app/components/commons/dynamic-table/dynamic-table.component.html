@@ -4,12 +4,12 @@
       <p><span class="key">Project Name:</span><span>  4</span></p>
     </div>
     <div class="col-md-6">
-      <p><span class="key">Unit NO. :</span><span>  6</span></p>
+      <p><span class="key">Unit No. :</span><span>  6</span></p>
     </div>
   </div>
   <div class="mb-3 mt-3 d-flex justify-content-between">
     <button class="button" (click)="goBack()">Go Back</button>
-    <button class="button" (click)="enableScrollX()">View {{isScrollXEnabled ? 'Less':'More'}}</button>
+    <button class="button" (click)="download()">Download</button>
   </div>
   <div class="table-responsive mb-6 text-center" [ngClass]="{'show-scroll-x' : isScrollXEnabled}">
     <table class="table table-bordered">
@@ -36,8 +36,8 @@
   </div>
   
   <div class="d-flex justify-content-end mt-3">
-    <!-- <button class="button" (click)="downloadSelectedRows()">Download Selected</button> -->
-    <button class="button" (click)="download()">Download</button>
+    <button class="button" (click)="enableScrollX()">View {{isScrollXEnabled ? 'Less':'More'}}</button>
+    
   </div>
               <div class="card   mt-4 w100">
                 <div class="card-body">

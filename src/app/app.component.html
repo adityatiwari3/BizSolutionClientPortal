@@ -2,9 +2,17 @@
 <div class="main-body">
     <router-outlet></router-outlet>
 </div> -->
-<div class="container" *ngIf="showLogoutButton">
+<!-- <div class="container" *ngIf="showLogoutButton">
     <div class="d-flex justify-content-end m-2 logout-btn">
         <button (click)="logout()">Logout</button>
     </div>
+</div> -->
+<div class="container" *ngIf="showLogoutButton">
+    <div class="d-flex justify-content-end m-2 logout-btn">
+        <button (click)="logout()" class="btn btn-danger btn-circle">
+            <i class="fa fa-power-off"></i>
+        </button>
+    </div>
 </div>
+
 <router-outlet></router-outlet>
