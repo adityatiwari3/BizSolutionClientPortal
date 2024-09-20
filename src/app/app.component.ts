@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   showLogoutButton = false;
   isMenuVisible = false;
   menuItems = [
-    { label: 'Property Deatils', link: '/' },
+    { label: 'Property Details', link: '/' },
     { label: 'Form 16B', link: '/form-16B' },
     { label: 'TDS Compliance', link: '/tds-compliance' },
     { label: 'Seller Payment', link: '/payments-to-seller' },
