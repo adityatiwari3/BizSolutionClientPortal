@@ -9,10 +9,25 @@
 </div> -->
 <div class="container" *ngIf="showLogoutButton">
     <div class="d-flex justify-content-end m-2 logout-btn">
-        <button (click)="logout()" class="btn btn-danger btn-circle">
+        <button (click)="logout()" class="btn btn-danger">
             <i class="fa fa-power-off"></i>
         </button>
     </div>
+    <div class="d-flex justify-content-start m-2">
+        <button  class="btn btn-danger  menu-btn" (click)="toggleMenu()">
+            <i class="fa fa-bars" *ngIf="!isMenuVisible"></i>
+            <p *ngIf="isMenuVisible">X</p>
+        </button>
+    </div>
+    <div class="menu " [ngClass]="{'show': isMenuVisible}" (click.stop)="preventClick()">
+        <div *ngFor="let menuItem of menuItems" >
+           <div class="menuList" (click)="navigateToPage(menuItem.link)">
+            {{menuItem.label}}
+           </div>
+           <hr>
+        </div>
+    </div>
+    
 </div>
 
 <router-outlet></router-outlet>
