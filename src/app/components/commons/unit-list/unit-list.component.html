@@ -13,18 +13,18 @@
             </div>
             <div class="col-12 col-lg-8">
                 <div class="unit-info text-center w-100 m-aut d-flex justify-content-between pr20">
-                    <p><span class="key">Project Name:</span><br><span>{{unit.companyName}}</span></p>
-                    <p class=""><span class="key">Unit No. :</span><br><span>{{unit.unitNo}}</span></p>
-                    <p class=""><span class="key">Declaration Date :</span><br><span>19/03/2023</span></p>
+                    <p class="key-unit-page"><span class="key">Project Name:</span><br><span>{{unit.companyName}}</span></p>
+                    <p class="key-unit-page"><span class="key">Unit No. :</span><br><span>{{unit.unitNo}}</span></p>
+                    <p class="key-unit-page"><span class="key">Declaration Date :</span><br><span>19/03/2023</span></p>
 
                     <div class="">
                         <div *ngFor="let customer of unit.customerList ">
                             <div class="">
-                                <div *ngIf="customer.isPrimaryOwner">
+                                <div *ngIf="customer.isPrimaryOwner" class="key-unit-page">
                                   <span class="key ">Primary Owner:</span><br/>
                                   <span>{{customer.name}}</span>
                                 </div>
-                                <div *ngIf="!customer.isPrimaryOwner">
+                                <div *ngIf="!customer.isPrimaryOwner" class="key-unit-page mt-2">
                                     <span class="key">Co-Owner:</span><br/>
                                     <span>{{customer.name}}</span>
                                   </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-1 d-flex justify-content-center align-items-center mb-2">
+            <div class="col-12 col-lg-1 d-flex justify-content-center align-items-center mb-2 mt-3">
                 <button class="button" (click)="viewDeclaration(unit.unitNo)">View</button>
             </div>
 
